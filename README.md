@@ -27,7 +27,7 @@ docker exec -it $(docker ps | grep web | awk '{print $NF}') /bin/bash
 
 cd /code && python runtests.py
 
-### Or if you want to use another Testing API
+### Or if you want to use another Testing API for creating a Todo
 
 ### I. Go to 
 GET http://localhost:8000/api-auth/login/
