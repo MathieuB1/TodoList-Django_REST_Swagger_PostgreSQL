@@ -48,6 +48,7 @@ GET http://localhost:8000/api-auth/login/
 X-CSRFToken xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 #### Set the Body with 
 {title:'hello', test:'world'}
+#### Create a todo
 POST http://localhost:8000/todolist/
 
 
