@@ -42,7 +42,9 @@ POST http://localhost:8000/api-auth/login/?username=amy&password=amy
 
 ### III. Create a todo
 
-#### 1. Generate the CSRF Token (Cookie has to be cleared manually when using POSTMAN)
+#### 1. Generate the CSRF Token 
+(At this point Cookie has to be cleared manually when using some APIs)
+
 GET http://localhost:8000/api-auth/login/
 #### 2. Set Header with the previous csrftoken value
 X-CSRFToken xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
