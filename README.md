@@ -29,26 +29,26 @@ cd /code && python runtests.py
 
 ### Or if you want to use another Testing API
 
-### Go to 
+### I. Go to 
 GET http://localhost:8000/api-auth/login/
 #### Get the token
 csrftoken xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
-### Login
+### II. Login
 #### Set Header with the previous csrftoken value
 X-CSRFToken xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 POST http://localhost:8000/api-auth/login/?username=amy&password=amy
 
 
-### Create a todo
+### III. Create a todo
 
-#### Generate the CSRF Token (Cookie has to be cleared manually when using POSTMAN)
+#### 1. Generate the CSRF Token (Cookie has to be cleared manually when using POSTMAN)
 GET http://localhost:8000/api-auth/login/
-#### Set Header with the previous csrftoken value
+#### 2. Set Header with the previous csrftoken value
 X-CSRFToken xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-#### Set the Body with 
+#### 3. Set the json content with 
 {title:'hello', test:'world'}
-#### Create a todo
+#### 4. Create a todo
 POST http://localhost:8000/todolist/
 
 
