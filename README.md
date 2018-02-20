@@ -42,14 +42,18 @@ POST http://localhost:8000/api-auth/login/?username=amy&password=amy
 
 ### III. Create a todo
 
-#### 1. Generate the CSRF Token 
-(At this point Cookie has to be cleared manually when using some APIs)
-
-GET http://localhost:8000/api-auth/login/
-#### 2. Set Header with the previous csrftoken value
+#### 2. Set Header with the previous csrftoken value & application type
 X-CSRFToken xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+Content-Type application/json
+
+Accept application/json
 #### 3. Set the json content with 
-{title:'hello', text:'world'}
+{
+	"title": "hello",
+	"text": "world",
+	"csrfmiddlewaretoken":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+}
 #### 4. Create a todo
 POST http://localhost:8000/todolist/
 
