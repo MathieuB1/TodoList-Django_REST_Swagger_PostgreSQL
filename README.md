@@ -27,8 +27,31 @@ docker exec -it $(docker ps | grep web | awk '{print $NF}') /bin/bash
 
 cd /code && python runtests.py
 
+### if you want to use another API
+
+### Go to 
+GET http://localhost:8000/api-auth/login/
+#### Get the token
+csrftoken xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+### Login
+#### Set Header with the previous csrftoken value
+X-CSRFToken xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+POST http://localhost:8000/api-auth/login/?username=amy&password=amy
+
+
+### Create a todo
+
+#### Generate the CSRF Token (Cookie has to be cleared manually when using POSTMAN)
+GET http://localhost:8000/api-auth/login/
+#### Set Header with the previous csrftoken value
+X-CSRFToken xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+#### Set the Body with 
+{title:'hello', test:'world'}
+POST http://localhost:8000/todolist/
+
+
 
 ## Additional Contribution in:
 > django-rest-swagger/myapp
-
 > tests/test_end_to_end_todolist.py
