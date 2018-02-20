@@ -47,7 +47,7 @@ GET http://localhost:8000/api-auth/login/
 #### 2. Set Header with the previous csrftoken value
 X-CSRFToken xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 #### 3. Set the json content with 
-{title:'hello', test:'world'}
+{title:'hello', text:'world'}
 #### 4. Create a todo
 POST http://localhost:8000/todolist/
 
