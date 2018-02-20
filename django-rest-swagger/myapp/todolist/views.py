@@ -16,8 +16,8 @@ class TodoListViewSet(viewsets.ModelViewSet):
     This endpoint presents TodoList.
 
 
-    The **owner** of the code snippet may update or delete instances
-    of the code snippet.
+    The **owner** of the code todo may update or delete instances
+    of the todo item.
 
     Try it yourself by logging in as one of these four users: **amy**, **max**,
     **jose** or **aziz**.  Passwords are the same as the usernames.
