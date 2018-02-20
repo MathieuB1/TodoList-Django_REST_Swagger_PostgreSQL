@@ -1,4 +1,4 @@
-# Django REST + Swagger + PostGreSQL
+# TodoList Django REST + Swagger + PostGreSQL
 
 Another DRF Swagger starter kit based on docker and django REST server.
 
