@@ -73,14 +73,14 @@ cat cookie.txt | tail -n 1 | awk {'print $NF'} #grab the value xxxxxxxxxxxxxxxxx
  Reponse: 200 OK
  {"created":"2018-02-21T18:52:18.240258Z","title":"today","text":"work","owner":"amy"}
  
-  #### 4. Get a Todo
+  #### III. Get a Todo
   
   curl http://localhost:8000/todolist/1/
   
   Reponse: 200 OK
   {"created":"2018-02-21T18:52:18.240258Z","title":"today","text":"work","owner":"amy"}
   
-  ### 5. Delete a todo
+  ### IV. Delete a todo
   
  #### 1. Get the cookie Token
 
