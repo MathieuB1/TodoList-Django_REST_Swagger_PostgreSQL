@@ -29,36 +29,75 @@ cd /code && python runtests.py
 
 ### Or if you want to use another Testing API for creating a Todo
 
-### I. Go to 
-GET http://localhost:8000/api-auth/login/
-#### Get the token
-csrftoken xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ ### I. Create a Todo
+ 
+ #### 1. Get the cookie Token
 
-### II. Login
-#### Set Header with the previous csrftoken value
-X-CSRFToken xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-POST http://localhost:8000/api-auth/login/?username=amy&password=amy
+curl -c cookie.txt http://localhost:8000/api-auth/login/
 
-Response: 200 OK
+cat cookie.txt | tail -n 1 | awk {'print $NF'} #grab the value xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
-### III. Create a todo
+ #### 2. Create the todo
 
-#### 2. Set Header with the previous csrftoken value & application type
-X-CSRFToken xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ curl http://localhost:8000/todolist/ \
+ -X POST \
+ -H "Content-Type: application/json" \
+ -H "Accept: text/html,application/json" \
+ -H "X-CSRFToken: xxxxxxxxxxxxxxxxxxxxxxxxxxxxx" \
+ -H "Cookie: csrftoken=xxxxxxxxxxxxxxxxxxxxxxxxxxxxx" \
+ -u amy:amy \
+ -d '{"title": "today","text": "review"}'
+ 
+ Response: 201 OK
+ {"created":"2018-02-21T19:29:04.596022Z","title":"today","text":"review","owner":"amy"}
+ 
+ 
+ ### II. Update a Todo
+ 
+ #### 1. Get the cookie Token
 
-Content-Type application/json
+curl -c cookie.txt http://localhost:8000/api-auth/login/
 
-Accept application/json
-#### 3. Set the json content with 
-{
-	"title": "hello",
-	"text": "world",
-	"csrfmiddlewaretoken": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-}
-#### 4. Create a todo
-POST http://localhost:8000/todolist/
+cat cookie.txt | tail -n 1 | awk {'print $NF'} #grab the value xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
-Response: 200 OK
+ #### 2. Update the todo
+  curl http://localhost:8000/todolist/1/ \
+ -X PUT \
+ -H "Content-Type: application/json" \
+ -H "Accept: text/html,application/json" \
+ -H "X-CSRFToken: neKmbSef5YvwPbbPtp0oQWCwQx19ApV2BAUxiq1VbhPYAdrluQiWbdR3KgFbI2r1" \
+ -H "Cookie: csrftoken=neKmbSef5YvwPbbPtp0oQWCwQx19ApV2BAUxiq1VbhPYAdrluQiWbdR3KgFbI2r1" \
+ -u amy:amy \
+ -d '{"title": "today","text": "work", "id": 1}'
+ 
+ Reponse: 200 OK
+ {"created":"2018-02-21T18:52:18.240258Z","title":"today","text":"work","owner":"amy"}
+ 
+  #### 4. Get a Todo
+  
+  curl http://localhost:8000/todolist/1/
+  
+  Reponse: 200 OK
+  {"created":"2018-02-21T18:52:18.240258Z","title":"today","text":"work","owner":"amy"}
+  
+  ### 5. Delete a todo
+  
+ #### 1. Get the cookie Token
+
+curl -c cookie.txt http://localhost:8000/api-auth/login/
+
+cat cookie.txt | tail -n 1 | awk {'print $NF'} #grab the value xxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+
+ #### 2. delete the todo
+  curl http://localhost:8000/todolist/1/ \
+ -X DELETE \
+ -H "Content-Type: application/json" \
+ -H "Accept: text/html,application/json" \
+ -H "X-CSRFToken: neKmbSef5YvwPbbPtp0oQWCwQx19ApV2BAUxiq1VbhPYAdrluQiWbdR3KgFbI2r1" \
+ -H "Cookie: csrftoken=neKmbSef5YvwPbbPtp0oQWCwQx19ApV2BAUxiq1VbhPYAdrluQiWbdR3KgFbI2r1" \
+ -u amy:amy
+ 
+ Reponse: 204 OK
 
 ## Additional Contribution in:
 > django-rest-swagger/myapp
