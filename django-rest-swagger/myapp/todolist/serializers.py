@@ -8,7 +8,7 @@ class TodoListSerializer(serializers.HyperlinkedModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
     class Meta:
         model = TodoList
-        fields = ('created', 'title','text','owner')
+        fields = ('id', 'created', 'title','text','owner')
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
