@@ -39,6 +39,7 @@ csrftoken xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 X-CSRFToken xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 POST http://localhost:8000/api-auth/login/?username=amy&password=amy
 
+Response: 200 OK
 
 ### III. Create a todo
 
@@ -52,12 +53,12 @@ Accept application/json
 {
 	"title": "hello",
 	"text": "world",
-	"csrfmiddlewaretoken":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+	"csrfmiddlewaretoken": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 }
 #### 4. Create a todo
 POST http://localhost:8000/todolist/
 
-
+Response: 200 OK
 
 ## Additional Contribution in:
 > django-rest-swagger/myapp
