@@ -73,7 +73,7 @@ cat cookie.txt | tail -n 1 | awk {'print $NF'} #grab the value xxxxxxxxxxxxxxxxx
  Reponse: 200 OK
  {"created":"2018-02-21T18:52:18.240258Z","title":"today","text":"work","owner":"amy"}
  
-  #### III. Get a Todo
+  ### III. Get a Todo
   
   curl http://localhost:8000/todolist/1/
   
