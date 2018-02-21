@@ -65,8 +65,8 @@ cat cookie.txt | tail -n 1 | awk {'print $NF'} #grab the value xxxxxxxxxxxxxxxxx
  -X PUT \
  -H "Content-Type: application/json" \
  -H "Accept: text/html,application/json" \
- -H "X-CSRFToken: neKmbSef5YvwPbbPtp0oQWCwQx19ApV2BAUxiq1VbhPYAdrluQiWbdR3KgFbI2r1" \
- -H "Cookie: csrftoken=neKmbSef5YvwPbbPtp0oQWCwQx19ApV2BAUxiq1VbhPYAdrluQiWbdR3KgFbI2r1" \
+ -H "X-CSRFToken: xxxxxxxxxxxxxxxxxxxxxxxxxxxxx" \
+ -H "Cookie: csrftoken=xxxxxxxxxxxxxxxxxxxxxxxxxxxxx" \
  -u amy:amy \
  -d '{"title": "today","text": "work", "id": 1}'
  
@@ -93,8 +93,8 @@ cat cookie.txt | tail -n 1 | awk {'print $NF'} #grab the value xxxxxxxxxxxxxxxxx
  -X DELETE \
  -H "Content-Type: application/json" \
  -H "Accept: text/html,application/json" \
- -H "X-CSRFToken: neKmbSef5YvwPbbPtp0oQWCwQx19ApV2BAUxiq1VbhPYAdrluQiWbdR3KgFbI2r1" \
- -H "Cookie: csrftoken=neKmbSef5YvwPbbPtp0oQWCwQx19ApV2BAUxiq1VbhPYAdrluQiWbdR3KgFbI2r1" \
+ -H "X-CSRFToken: xxxxxxxxxxxxxxxxxxxxxxxxxxxxx" \
+ -H "Cookie: csrftoken=xxxxxxxxxxxxxxxxxxxxxxxxxxxxx" \
  -u amy:amy
  
  Reponse: 204 OK
